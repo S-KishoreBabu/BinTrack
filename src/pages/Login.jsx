@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 
 const Login = () => {
+  const [formData,setFormData] = useState({
+    email:"",
+    password:""
+  });
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({ email,password });
+    console.log(formData);
+  };
   return (
     <StyledWrapper>
-      <form className="form">
+      <form className="form" onSubmit={(e)=>{handleSubmit(e)}}>
         <div className="flex-column">
           <label>Email</label>
         </div>
@@ -14,6 +25,8 @@ const Login = () => {
             type="text" 
             className="input" 
             placeholder="Enter your Email" 
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
           />
         </div>
 
@@ -26,6 +39,8 @@ const Login = () => {
             type="password" 
             className="input" 
             placeholder="Enter your Password" 
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
           />
         </div>
 
@@ -38,7 +53,7 @@ const Login = () => {
           <span className="span">Forgot password?</span>
         </div>
 
-        <button className="button-submit">
+        <button type='submit' className="button-submit">
           Sign In
         </button>
 
