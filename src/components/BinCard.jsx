@@ -1,0 +1,76 @@
+import React, { useState } from 'react'
+import greenBin from '../assets/dustbin-green.png'
+import redBin from '../assets/dustbin-red.png'
+import Input from './Input'
+
+const BinCard = ({ id, location, percentage }) => {
+  const [hover, setHover] = useState(false)
+
+  const isFull = percentage > 80
+
+  const shadow = isFull
+    ? "50px -70px 45px -70px rgba(196,2,2,0.8)"
+    : "50px -70px 45px -70px rgba(14,179,2,1)"
+
+    const bgImage = isFull ? "linear-gradient(to right, #e00404, #ff6969)": "linear-gradient(to right, #065f46, #4ade80)"
+
+  return (
+    <div style={{backgroundImage:bgImage}} className='flex justify-center items-center w-[200px] h-[280px] bg-gradient-to-r from-green-800 to-green-400 rounded-2xl'>
+      
+      <div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
+          boxShadow: hover ? shadow : "none",
+          transition: "box-shadow 0.3s ease, transform 0.3s ease"
+        }}
+        className='w-full h-full hover:scale-98 rounded-2xl shadow-2xl bg-[#373737] border-2 border-[#525252]'
+      >
+        
+        <div
+          style={{
+            backgroundImage: `url(${isFull ? redBin : greenBin})`
+          }}
+          className='h-full w-full rounded-2xl bg-center bg-contain bg-no-repeat'
+        >
+          
+          <div className='w-full h-full rounded-2xl backdrop-blur-xl p-3'>
+            
+            {/* Image */}
+            <div className='w-full h-32'>
+              <img
+                src={isFull ? redBin : "https://img.icons8.com/fluency/240/waste--v1.png"}
+                className='w-full h-full object-contain'
+              />
+            </div>
+
+            {/* Content */}
+            <div className='w-full relative -top-4 rounded-2xl bg-[#373737] border border-[#525252] p-2'>
+              
+              <div className='flex justify-between items-center text-[#F5F5F5]'>
+                <span className='font-bold text-sm'>{location}</span>
+                <div className='h-8 w-8 rounded-full bg-[#525252] flex items-center justify-center'>
+                  <span className='font-bold text-sm'>{id}</span>
+                </div>
+              </div>
+
+              <hr className='my-2 border-[#525252]' />
+
+              <div className='flex items-center'>
+                <Input percentage={percentage} />
+                <div className='ml-3 text-xs text-[#e8e8e8]'>
+                  Dustbin {id} is filled {percentage}%
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+export default BinCard
