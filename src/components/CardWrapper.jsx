@@ -57,9 +57,6 @@ const data = [
 ];
   return (
     <div className=' p-8 w-full h-max '>
-        <div className='py-5 text-[#E5E5E5] font-bold text-xl'>
-            <span>Dustbin Status Overview :</span>
-        </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-x-1 gap-y-8">
             {data.map((item) => (
                 <BinCard key={item.id} id={item.id} location={item.location} percentage={item.percentage} />
