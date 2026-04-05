@@ -18,7 +18,6 @@ const BinStatusTable = () => {
         if(optionValue!=""){
             setFilterUsed(true);
             let newData = [];
-            console.log(optionValue);
             if(optionValue=="overFlow"){
                 newData = data.filter((item)=>{
                     if(item.percentage>90){
@@ -106,7 +105,6 @@ const BinStatusTable = () => {
             }
         }
     }
-    console.log(optionValue)
   return (
     <div className=' p-8 w-full h-max '>
         <div className='w-full h-max rounded-xl shadow-md bg-[#FAFAFA] dark:bg-[#262626] text-[#737373] dark:text-[#8A8A8A] pb-12 '>
@@ -117,7 +115,7 @@ const BinStatusTable = () => {
                     <select value={optionValue} onChange={(e)=>{
                         setOptionValue(e.target.value);
                         handleSelect(e.target.value);
-                        }} className='bg-[#525252] text-[#A3A3A3] p-2 w-full outline-none rounded'>
+                        }} className='bg-[#E5E5E5] dark:bg-[#525252] text-[#A3A3A3] p-2 w-full outline-none rounded'>
                         <option value="">Select Option</option>
                         <option value="underCapacity">Under capacity</option>
                         <option value="nearlyFull">Nearly full</option>
@@ -125,7 +123,7 @@ const BinStatusTable = () => {
                     </select>
                     <FilterByNumber handleSearch={handleLevel}/>
                     <div className='flex justify-center items-center mt-4'>
-                    <button className='h-9 rounded-3xl w-max bg-[#525252] hover:bg-[#262626] cursor-pointer text-[#f5f5f5] px-5' onClick={handleReset} >Reset</button>
+                    <button className='h-9 rounded-3xl w-max bg-[#E5E5E5] dark:bg-[#525252] hover:bg-[#d2d2d2] dark:hover:bg-[#262626] cursor-pointer dark:text-[#f5f5f5] px-5' onClick={handleReset} >Reset</button>
                     </div>
                 </div>
             </DropDown>

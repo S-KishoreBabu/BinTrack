@@ -5,8 +5,7 @@ import { CiViewTable } from "react-icons/ci";
 import { FaMapMarkerAlt } from "react-icons/fa";
 const SideBar = () => {
     // const [isOpen,setIsOpen] = useState(true);
-    const {isOpen,setIsOpen} = useContext(SidebarContext)
-    console.log(setIsOpen);
+    const {isOpen,setIsOpen} = useContext(SidebarContext);
   return (
     <div>
         <div style={{display:isOpen?"block":"none"}} className=' fixed p-2  z-1 w-60 h-full'>

@@ -7,7 +7,6 @@ const DropDown = (props) => {
     const dropDownRef = useRef(null);
     useEffect(()=>{
         const clickOutside = (e)=>{
-            console.log(e.target);
             if(dropDownRef.current && !dropDownRef.current.contains(e.target)){
                 setDropDown(false);
             }
@@ -19,11 +18,11 @@ const DropDown = (props) => {
     },[])
   return (
         <div className='relative' ref={dropDownRef}>
-            <div onClick={()=>{setDropDown(!dropDown)}} className='p-2 rounded-full bg-[#4a4a4a] ml-5 cursor-pointer hover:bg-[#373737]'>
+            <div onClick={()=>{setDropDown(!dropDown)}} className='p-2 rounded-full bg-[#f5f5f5] hover:bg-[#e5e5e5] dark:bg-[#4a4a4a] ml-5 cursor-pointer dark:hover:bg-[#373737]'>
                 {props.filterUsed?<FaFilter  className='text-2xl text-blue-500' />:<CiFilter className='text-2xl'/>}
                 </div>
             {dropDown && 
-                <div style={{marginLeft:props.left,marginTop:props.top}}  className="absolute bg-[#373737] border border-[#525252] shadow-lg rounded-lg p-3 z-50">
+                <div style={{marginLeft:props.left,marginTop:props.top}}  className="absolute bg-[#FAFAFA] dark:bg-[#373737] dark:border dark:border-[#525252] shadow-lg rounded-lg p-3 z-50">
                 {props.children}
                 </div>
             }

@@ -5,9 +5,12 @@ import Register from "./pages/Register"
 import Layout from "./pages/Layout"
 import AboutUs from "./pages/AboutUs"
 import { SidebarProvider } from "./context/SidebarContext"
+import ThemeProvider from "./utils/ThemeProvider"
 function App() {
 
+
   return (
+    <ThemeProvider>
     <SidebarProvider>
     <BrowserRouter>
       <Routes>
@@ -21,6 +24,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </SidebarProvider>
+    </ThemeProvider>
   )
 }
 

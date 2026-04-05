@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState,useRef, useEffect } from 'react';
 import { IoMdSearch } from "react-icons/io";
+import { ThemeContext } from '../utils/themeContext';
 const SearchButton = ({handleSearch,placeholder="search..."}) => {    
     const [searchValue,setSearchValue] = useState("");
     const inputRef = useRef(null);
     const searchDivRef = useRef(null);
     const [isFocus,setIsFocus] = useState(false);
-
+    const {lightTheme} = useContext(ThemeContext);
     useEffect(()=>{
-        if(localStorage.theme=="dark"){
+        if(!lightTheme){
             if(isFocus){
                 searchDivRef.current.style.border ="solid 2px lightblue";
                 searchDivRef.current.style.backgroundColor = "#262626"
@@ -20,8 +21,8 @@ const SearchButton = ({handleSearch,placeholder="search..."}) => {
         }
         else{
             if(isFocus){
-                searchDivRef.current.style.border ="solid 2px lightblue";
-                searchDivRef.current.style.backgroundColor = "#262626"
+                searchDivRef.current.style.border ="solid 2.4px #024abf";
+                searchDivRef.current.style.backgroundColor = "#FAFAFA"
             }
             else{
                 searchDivRef.current.style.border ="solid 2px #e5e5e5";
@@ -29,7 +30,7 @@ const SearchButton = ({handleSearch,placeholder="search..."}) => {
             }            
         }
 
-    },[isFocus]);
+    },[isFocus,lightTheme]);
 
   return (
   <>
@@ -43,7 +44,7 @@ const SearchButton = ({handleSearch,placeholder="search..."}) => {
             }} onFocus={()=>{setIsFocus(true)}} onBlur={()=>{setIsFocus(false);}} className='px-3 py-1 w-full dark:text-[#f5f5f5] outline-none' />
 
     </div>
-    <button className='h-9 rounded-3xl ml-5 w-max bg-blue-300 hover:bg-blue-200 cursor-pointer text-[#0b143f] px-5' onClick={()=>{
+    <button className='h-9 rounded-3xl ml-5 w-max bg-blue-700 hover:bg-blue-500 text-white dark:bg-blue-300 dark:hover:bg-blue-200 cursor-pointer dark:text-[#0b143f] px-5' onClick={()=>{
         handleSearch(searchValue);
     }} >Search</button>
   </>
