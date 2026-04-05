@@ -7,7 +7,7 @@ import Toggle from './Toggle';
 const Header = () => {
   const {isOpen,setIsOpen} = useContext(SidebarContext);
   return (
-    <div className='w-full h-16 bg-[#E5E5E5] dark:bg-[#262626] sticky top-0 z-10 flex items-center justify-between text-dark dark:text-white px-4 border-b-2 border-green-600'>
+    <div className='w-full h-16 bg-[#FAFAFA] dark:bg-[#262626] sticky top-0 z-10 flex items-center justify-between text-dark dark:text-white px-4 border-b-2 border-green-600'>
         <div className='flex justify-around items-center w-40'>
           <GiHamburgerMenu onClick={()=>{setIsOpen(!isOpen)}} />
           <h1 className="bg-linear-to-r from-green-500 via-green-300 to-green-500 bg-clip-text text-transparent font-extrabold text-2xl ">BinTrack</h1>

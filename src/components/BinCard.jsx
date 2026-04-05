@@ -15,7 +15,7 @@ const BinCard = ({ id, location, percentage }) => {
     const bgImage = isFull ? "linear-gradient(to right, #e00404, #ff6969)": "linear-gradient(to right, #065f46, #4ade80)"
 
   return (
-    <div style={{backgroundImage:bgImage}} className='flex justify-center items-center w-50 h-70 bg-linear-to-r from-green-800 to-green-400 rounded-2xl'>
+    <div style={{backgroundImage:bgImage}} className='flex justify-center shadow-sm items-center w-50 h-70 bg-linear-to-r from-green-800 to-green-400 rounded-2xl'>
       
       <div
         onMouseEnter={() => setHover(true)}
@@ -24,7 +24,7 @@ const BinCard = ({ id, location, percentage }) => {
           boxShadow: hover ? shadow : "none",
           transition: "box-shadow 0.3s ease, transform 0.3s ease"
         }}
-        className='w-full h-full hover:scale-98 rounded-2xl shadow-2xl bg-[#D4D4D4] dark:bg-[#373737] border-2 border-[#A3A3A3] dark:border-[#525252]'
+        className='w-full h-full hover:scale-98 rounded-2xl shadow-2xl bg-[#FAFAFA] dark:bg-[#373737] dark:border-2  dark:border-[#525252]'
       >
         
         <div
@@ -45,11 +45,10 @@ const BinCard = ({ id, location, percentage }) => {
             </div>
 
             {/* Content */}
-            <div className='w-full relative -top-4 rounded-2xl bg-[#D4D4D4] dark:bg-[#373737] border border-[#A3A3A3] dark:border-[#525252] p-2'>
-              
+            <div className='w-full relative -top-4 rounded-2xl bg-[#FAFAFA] shadow-md dark:shadow-none dark:bg-[#373737] dark:border border-[#A3A3A3] dark:border-[#525252] p-2'>              
               <div className='flex justify-between items-center text-[#171717] dark:text-[#F5F5F5]'>
                 <span className='font-bold text-sm'>{location}</span>
-                <div className='h-8 w-8 rounded-full bg-[#A3A3A3] dark:bg-[#525252] flex items-center justify-center'>
+                <div className='h-8 w-8 rounded-full bg-[#E5E5E5] dark:bg-[#525252] flex items-center justify-center'>
                   <span className='font-bold text-sm'>{id}</span>
                 </div>
               </div>

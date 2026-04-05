@@ -109,7 +109,7 @@ const BinStatusTable = () => {
     console.log(optionValue)
   return (
     <div className=' p-8 w-full h-max '>
-        <div className='w-full h-max rounded-xl shadow-2xl bg-[#262626] text-[#8A8A8A] pb-12 '>
+        <div className='w-full h-max rounded-xl shadow-md bg-[#FAFAFA] dark:bg-[#262626] text-[#737373] dark:text-[#8A8A8A] pb-12 '>
         <div className='w-full h-max p-4 flex justify-start items-center'>            
             <SearchButton handleSearch={handleSearch} placeholder="search by location or id"/>
             <DropDown left= "-380px" filterUsed={filterUsed} top= "0px">
@@ -132,7 +132,7 @@ const BinStatusTable = () => {
         </div>
 
         <table className=' w-full '>
-            <thead className='border-b border-0.5 h-12 border-[#373737] text-[#A3A3A3]'>
+            <thead className='border-b border-0.5 h-12 border-[#d4d4d4] dark:border-[#373737] text-[#A3A3A3]'>
                 <tr>
                     <td className='pl-4'>
                         <span>Id</span>
@@ -150,7 +150,7 @@ const BinStatusTable = () => {
             </thead>
             {dataNotFound || <tbody>
                 {binData.map((item)=>(
-                    <tr key={item.id} className='h-12 hover:bg-[#373737] border-b border-0.5 border-[#373737]' >
+                    <tr key={item.id} className='h-12 hover:bg-[#e5e5e5] dark:hover:bg-[#373737] border-b border-0.5 border-[#d4d4d4] dark:border-[#373737]' >
                         <td className='pl-4'><span>{item.id}</span></td>
                         <td><span>{item.location}</span></td>
                         <td><span>{item.percentage>80?"Nearly full":"Under capacity"}</span></td>
