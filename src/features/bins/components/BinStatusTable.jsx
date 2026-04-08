@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import SearchButton from './SearchButton';
-import useFetchData from '../utils/useFetchData';
-import DropDown from './DropDown';
-import FilterByNumber from './FilterByNumber';
+import SearchButton from "../../../components/ui/SearchButton";
+import useFetchData from "../../../hooks/useFetchData";
+import DropDown from "../../../components/ui/DropDown";
+import FilterByNumber from "./FilterByNumber";
 import { FitScreen } from '@mui/icons-material';
+import { CiFilter } from "react-icons/ci";
+import { FaFilter } from "react-icons/fa";
 const BinStatusTable = () => {
     const [dataNotFound,setDataNotFound] = useState(false);
     const [binData,setBinData] = useState([]);
@@ -110,7 +112,11 @@ const BinStatusTable = () => {
         <div className='w-full h-max rounded-xl shadow-md bg-[#FAFAFA] dark:bg-[#262626] text-[#737373] dark:text-[#8A8A8A] pb-12 '>
         <div className='w-full h-max p-4 flex justify-start items-center'>            
             <SearchButton handleSearch={handleSearch} placeholder="search by location or id"/>
-            <DropDown left= "-380px" filterUsed={filterUsed} top= "0px">
+            <DropDown left= "-380px" filterUsed={filterUsed} top= "0px" 
+                dropDownHead={(<div  className='p-2 rounded-full bg-[#f5f5f5] hover:bg-[#e5e5e5] dark:bg-[#4a4a4a] ml-5 cursor-pointer dark:hover:bg-[#373737]'>
+                    {filterUsed?<FaFilter  className='text-2xl text-blue-500' />:<CiFilter className='text-2xl'/>}
+                </div>)} 
+                >
                 <div className='w-max'>
                     <select value={optionValue} onChange={(e)=>{
                         setOptionValue(e.target.value);

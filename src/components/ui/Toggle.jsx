@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
-import { ThemeContext } from '../utils/themeContext';
+import { ThemeContext } from "../../context/ThemeContext";
 const Toggle = () => {
     const {toggleTheme} = useContext(ThemeContext);
     const [isOn, setIsOn] = React.useState(false);

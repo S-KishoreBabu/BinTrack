@@ -1,5 +1,5 @@
 import CardWrapper from "./CardWrapper";
-import BinStatusTable from "./BinStatusTable";
+import BinStatusTable from "../../features/bins/components/BinStatusTable";
 import { useState } from "react";
 import Toggle from "./Toggle";
 const Tab = () => {

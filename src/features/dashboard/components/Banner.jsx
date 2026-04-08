@@ -1,9 +1,9 @@
 import React from "react";
-import BannerButton from "./BannerButton";
-import { GridScan } from "./GridScan";
+import BannerButton from "../../../components/ui/BannerButton";
+import { GridScan } from "../../map/components/GridScan";
 const Banner = () => {
   return (
-    <div className="h-137.5 w-full relative">
+    <div className="h-137.5 w-full relative bg-gray-900">
       <GridScan
         sensitivity={0.55}
         lineThickness={1}

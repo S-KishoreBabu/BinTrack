@@ -1,28 +1,50 @@
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import { auth } from '../../../config/firebase/firebaseAuth';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [formData,setFormData] = useState({
-    email:"",
-    password:""
-  });
+  const navigate = useNavigate();
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    if(!email || !password){
+      alert("Enter email & password");
+      return;
+    }
     e.preventDefault();
-    setFormData({ email,password });
-    console.log(formData);
+    try{
+      const result = await signInWithEmailAndPassword(auth,email,password);
+      alert("sucessfully logged In");
+      localStorage.setItem("token",result.user.accessToken);
+      console.log(result);
+      setTimeout(()=>{
+        navigate('/home');
+      },2000)
+    }
+    catch(error){
+      console.log(error);
+    }
   };
+
+  const handleGoogleAuth = async ()=>{
+    const provider =  await new GoogleAuthProvider();
+    return signInWithPopup(auth,provider);
+
+  }
   return (
     <StyledWrapper>
       <form className="form" onSubmit={(e)=>{handleSubmit(e)}}>
+        <h1 className='text-center z-1 font-bold text-2xl'>Welcome to BinTrack</h1>
+        <div className='w-70 h-3 bg-green-400 relative left-9 -top-7'></div>
         <div className="flex-column">
           <label>Email</label>
         </div>
 
         <div className="inputForm">
           <input 
-            type="text" 
+            type="email" 
             className="input" 
             placeholder="Enter your Email" 
             value={email}
@@ -59,13 +81,13 @@ const Login = () => {
 
         <p className="p">
           Don't have an account? 
-          <span className="span"> Sign Up</span>
+          <Link to='/register' ><span className="span"> Sign Up</span></Link>
         </p>
 
         <p className="p line">Or With</p>
 
         <div className="flex-row">
-          <button className="btn">Google</button>
+          <button onClick={handleGoogleAuth} className="btn">Google</button>
         </div>
 
       </form>
@@ -104,7 +126,6 @@ background:#f4f6fb;
   height: 45px;
   display: flex;
   align-items: center;
-  padding-left: 10px;
   transition: .2s;
 }
 
@@ -138,7 +159,7 @@ background:#f4f6fb;
 }
 
 .button-submit{
-  background:#151717;
+  background:#16A34A;
   color:white;
   border:none;
   height:45px;
@@ -149,7 +170,7 @@ background:#f4f6fb;
 }
 
 .button-submit:hover{
-  background:#252727;
+  background:#079c02;
 }
 
 .p{

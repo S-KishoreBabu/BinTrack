@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { ThemeContext } from './themeContext';
+import { ThemeContext } from './ThemeContext';
 const ThemeProvider = ({children}) => {
   const [lightTheme,setLightTheme] = useState(true);
   const toggleTheme = ()=>{

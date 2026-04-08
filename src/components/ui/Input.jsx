@@ -43,8 +43,9 @@ const Input = ({ percentage = 70 }) => {
           y="50%"
           dominantBaseline="middle"
           textAnchor="middle"
-          fill="white"
+          // fill="white"
           fontSize="10"
+          className="dark:fill-white"
         >
           {percentage}%
         </text>

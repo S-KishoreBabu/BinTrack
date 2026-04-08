@@ -1,5 +1,5 @@
 import React from 'react'
-import BinCard from './BinCard'
+import BinCard from "../../features/bins/components/BinCard";
 
 const CardWrapper = () => {
 
@@ -56,13 +56,18 @@ const data = [
   { id: 34, location: "Venkataramana Road", percentage: 48 }
 ];
   return (
-    <div className=' p-8 w-full h-max '>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-x-1 gap-y-8">
-            {data.map((item) => (
-                <BinCard key={item.id} id={item.id} location={item.location} percentage={item.percentage} />
-            ))}
-        </div>
-    </div>
+<div className="p-4 sm:p-6 md:p-8 w-full">
+  <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+    {data.map((item) => (
+      <BinCard
+        key={item.id}
+        id={item.id}
+        location={item.location}
+        percentage={item.percentage}
+      />
+    ))}
+  </div>
+</div>
 
   )
 }

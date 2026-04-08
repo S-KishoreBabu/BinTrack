@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useState,useRef, useEffect } from 'react';
 import { IoMdSearch } from "react-icons/io";
-import { ThemeContext } from '../utils/themeContext';
+import { ThemeContext } from "../../context/ThemeContext";
 const SearchButton = ({handleSearch,placeholder="search..."}) => {    
     const [searchValue,setSearchValue] = useState("");
     const inputRef = useRef(null);

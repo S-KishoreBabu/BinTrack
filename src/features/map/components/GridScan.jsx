@@ -2,7 +2,7 @@ import * as faceapi from 'face-api.js';
 import { BloomEffect, ChromaticAberrationEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import './GridScan.css';
+import "../../../assets/GridScan.css";
 
 const vert = `
 varying vec2 vUv;
