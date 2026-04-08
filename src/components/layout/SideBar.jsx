@@ -14,18 +14,6 @@ const SideBar = () => {
                     <li className='w-full px-4 py-1 hover:bg-gray-300 dark:hover:bg-[#262626]  cursor-pointer duration-100 rounded-4xl'>about us</li>
                     <li className='w-full px-4 py-1 hover:bg-gray-300 dark:hover:bg-[#262626] cursor-pointer duration-100 rounded-4xl'>contact</li>
                     <li className='w-full px-4 py-1 hover:bg-gray-300 dark:hover:bg-[#262626]  cursor-pointer duration-100 rounded-4xl'>notification</li>
-                    {/* <li className='flex w-full h-max justify-start gap-5 items-center hover:bg-[#E5E5E5] dark:hover:bg-[#262626]  rounded-2xl px-3 py-1'>
-                        <IoGridOutline className='text-xl font-extrabold' />
-                        <span>Grid View</span>
-                    </li>
-                    <li className='flex w-full h-max justify-start gap-5 items-center hover:bg-[#E5E5E5] dark:hover:bg-[#262626] rounded-2xl px-3 py-1'>
-                        <CiViewTable />
-                        <span>Table View</span>
-                    </li>
-                    <li className='flex w-full h-max justify-start gap-5 items-center hover:bg-[#E5E5E5] dark:hover:bg-[#262626] rounded-2xl px-3 py-1'>
-                        <FaMapMarkerAlt />
-                        <span>Map View</span>
-                    </li> */}
                 </ul>
             </div>
         </div>
